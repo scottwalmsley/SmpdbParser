@@ -1,4 +1,5 @@
 # SmpdbParser
+> *Copyright 2018 [Scott Walmsley](https://scottwalmsley.github.io)*
 A parser for the Small Molecules Pathways DataBase (SMPDB).
 
 ## Background
