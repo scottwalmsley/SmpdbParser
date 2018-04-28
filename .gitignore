@@ -5,3 +5,4 @@ out/
 *.ser
 *.csv
 *.iml
+target/
