@@ -1,6 +1,6 @@
 # SmpdbParser
 > *Copyright 2018 [Scott Walmsley](https://scottwalmsley.github.io)*
-A parser for the Small Molecules Pathways DataBase (SMPDB).
+<br>A parser for the Small Molecules Pathways DataBase (SMPDB).
 
 ## Background
 The SMPDB (http://smpdb.ca) is a database of pathway and small molecule related information.
@@ -87,7 +87,7 @@ these two classes are important serialization UIDs:
 ```java
  private static final long serialVersionUID = 1L;
  ```
-..it is important that these are appropirately used in the context of your
+..it is important that these are appropriately used in the context of your
 usage or a NoClassDef exception will occur, either on the same machine or
 between machines.  They have been set up appropriately in this repository
 and work as written.   Examples of serialization and de-serialization are
