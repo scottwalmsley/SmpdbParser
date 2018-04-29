@@ -7,7 +7,7 @@ The SMPDB (http://smpdb.ca) is a database of pathway and small molecule related 
 This Java library was developed to facilitate extraction of key bits of
 information from the SMPDB and to use that information to build a
 local MongoDB and Neo4J storage databases. SmpdbParser is part of a larger
-project, Human Metabolome Database (HMDB) Network Amalgamation, and the SMPDB
+project, Metabolic Network Amalgamation, and the SMPDB
 information is used to build graphical networks of metabolic compounds.
 
 ### *Usage*
@@ -41,7 +41,7 @@ This class is the primary storage - object class for information that has
 The object class for the Smpdb pathways as seen in the pathways.csv file.
 
 ### *4. SmpdbMetabolite*
-The obect class for the Smpdb Metabolite-pathway relationships as seen in
+The object class for the Smpdb Metabolite-pathway relationships as seen in
 the metabolites.csv file.
 
 ### *5. SmpdbMap and SmpdbMetaboliteMap*
