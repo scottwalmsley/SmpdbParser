@@ -1,9 +1,18 @@
+// Copyright
+
 package com.metabosoft.cm.smpdb;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * The SmpdbMetabolite Map class is a storage class for serializing the smpdb metabolite information.
+ *
+ * @author Scott J. Walmsley
+ * @version 0.0.1
+ * @since 2018-04-07
+ *
+ */
 public class SmpdbMetaboliteMap implements Serializable {
     private static final long serialVersionUID = 1L;
 

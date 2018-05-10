@@ -1,3 +1,21 @@
+/*
+ * Copyright 2018  Scott J. Walmsley
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
 package com.metabosoft.cm.smpdb;
 
 import org.biopax.paxtools.impl.level3.PathwayImpl;
@@ -18,6 +36,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -26,7 +45,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class SmpdbFile {
+
+/**
+ * The SmpdbFile class comtains a storage interface and methods for parsing the BioPax
+ * files downloaded from HMDB.
+ *
+ * @author Scott J. Walmsley
+ * @version 0.0.1
+ * @since 2018-04-07
+ *
+ */
+public class SmpdbFile implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
 
     private File dirBioPax;
@@ -47,11 +78,20 @@ public class SmpdbFile {
         this.bioPaxFiles = this.dirBioPax.list();
     }
 
+    public Map<String, SmpdPathway> getPathways() {
+        return pathways;
+    }
+
+    public List<SmpdbMetabolite> getRelationships(){
+        return  this.metaboliteRelationships;
+    }
+
     public void readPaxFiles() {
 
         String[] split;
         String pwAccesssion;
         Map<String, String> paxSearch;
+
         UnificationXref uxr;
         String taxonomy;
 
@@ -288,6 +328,10 @@ public class SmpdbFile {
 
     }
 
+    public Map<String, SmpdbMetabolite> getUniqueMetaboliteList() {
+        return uniqueMetaboliteList;
+    }
+
     public void setMetaboliteMap(){
         this.metaboliteMap.setUniqueMetaboliteList(this.uniqueMetaboliteList);
         this.metaboliteMap.setPathwayList(this.pathways);
@@ -304,6 +348,15 @@ public class SmpdbFile {
         out.writeObject(this.metaboliteMap);
         out.close();
         fileOut.close();
+    }
+
+    public final void serialize(String fh) throws IOException {
+        FileOutputStream fileOut =  new FileOutputStream(fh);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(this);
+        out.close();
+        fileOut.close();
+
     }
 
 }
